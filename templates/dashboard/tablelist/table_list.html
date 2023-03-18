@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'dashboard/base.html' %}
 {% load static %}
 {% load render_table from django_tables2 %}
 
@@ -52,11 +52,11 @@
                                 <h4>{{ title }}</h4>
                             </div>
                             <div>
-                                {% include 'base-form-path.html' %}
+                                {% include 'dashboard/base-form-path.html' %}
                             </div>
                         </div>
                         <hr/>
-                        {% include 'success_message.html' %}<br>
+                        {% include 'dashboard/success_message.html' %}<br>
                         <div class="table-responsive">
                             {% render_table table %}
                         </div>

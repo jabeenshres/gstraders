@@ -8,6 +8,23 @@
     <link href="{% static 'assets/plugins/datetimepicker/css/classic.css' %}" rel="stylesheet" />
 	<!-- <link href="{% static 'assets/plugins/datetimepicker/css/classic.time.css' %}" rel="stylesheet" /> -->
     <link href="{% static 'assets/plugins/datetimepicker/css/classic.date.css' %}" rel="stylesheet" />
+
+    <style>
+        .pByfF {
+            border-radius: 8px;
+            overflow: hidden;
+            height: auto;
+            margin: auto;
+            margin-left: 7px;
+            padding: 0;
+            padding-left: 6px;
+            background: #e3e7eb;
+        }
+        .pByfF i {
+            color: #000;
+            font-size: 25px;
+        }
+    </style>
 {% endblock %}
 
 {% block content %}
@@ -20,18 +37,21 @@
 						<div class="col-12">
 							<div class="card border-lg-top-danger">
 								<div class="card-body p-5">
-                                    {% include 'success_message.html' %}<br>
+                                    {% include 'dashboard/success_message.html' %}<br>
 									<div class="d-flex justify-content-between">
                                         <div class="card-title">
                                             <h3 class="text-danger">{{ heading }}</h3>
                                         </div>
 
                                         <div>
-                                            {% include 'base-data-view.html' %}
+                                            {% include 'dashboard/base-data-view.html' %}
+                                                <a class="button" href="{% url 'products:list' %}">
+                                                    <button class="btn btn-primary">View-Data</button>
+                                                </a>
                                         </div>
 									</div>
                                     <hr/>
-                                    
+
                                     <form method="POST" enctype="multipart/form-data" id="createForm">
                                         {% csrf_token %}
                                         <div class="form-body">
