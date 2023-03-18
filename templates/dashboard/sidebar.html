@@ -1,0 +1,43 @@
+{% load static %}
+
+<div class="sidebar-wrapper" data-simplebar="true">
+    <div class="sidebar-header">
+        <div class="">
+        </div>
+        <div>
+            <h7>Gwashi Samaiji Traders</h7>
+        </div>
+        <a href="javascript:;" class="toggle-btn ml-auto"> <i class="bx bx-menu"></i>
+        </a>
+    </div>
+    <!--navigation-->
+    <ul class="metismenu" id="menu">
+        <li>
+            <a href="{% url 'dashboard-home' %}" >
+                <div class="parent-icon icon-color-1"><i class="bx bx-home-alt"></i>
+                </div>
+                <div class="menu-title">Dashboard</div>
+            </a>
+        </li>
+        <li class="menu-label">Forms & Tables</li>
+            <li>
+                <a href="#">
+                    <div class="parent-icon icon-color-12">
+                        <i class="bx bx-user"></i>
+                    </div>
+                    <div class="menu-title">Customer Details</div>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <div class="parent-icon icon-color-12">
+                        <i class="bx bx-buildings"></i>
+                    </div>
+                    <div class="menu-title">Company Details</div>
+                </a>
+            </li>
+        </li>
+    </ul>
+
+</div>
