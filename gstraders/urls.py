@@ -10,8 +10,8 @@ urlpatterns = [
     path('', TemplateView.as_view(template_name='ecommerce/index.html'), name='landing'),
 
     path('dashboard/', login_required(TemplateView.as_view(template_name='dashboard/dashboard.html')), name='dashboard-home'),
-    path('products/', include('products.urls')),
-    path('gstraders/admin/',include("accounts.urls")),
+    path('gstraders/', include('products.urls')),
+    path('gsadmin/',include("accounts.urls")),
 
 ]
 

@@ -13,16 +13,16 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 from django_tables2 import SingleTableView
 
-from .models import Products
-from .forms import ProductsForm
-from .tables import ProductsTable
+from .models import Products, Category
+from .forms import ProductsForm, CategoryForm
+from .tables import ProductsTable, CategoryTable
 
 
 """
 Products Create
 """
 class ProductsAddView(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
-    template_name = "createupdate-products.html"
+    template_name = "createupdate.html"
     form_class = ProductsForm
     success_url = reverse_lazy('products:list')
     success_message = 'Form has been successfully submitted.'
@@ -31,10 +31,8 @@ class ProductsAddView(LoginRequiredMixin, SuccessMessageMixin, generic.CreateVie
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
-        if self.view_data_url:
-            ctx['view_data'] = self.view_data_url
-        if self.heading:
-            ctx['heading'] = self.heading
+        ctx['heading'] = "Product Create"
+        ctx['list'] = 'products:list'
         return ctx
 
     def form_valid(self, form):
@@ -66,6 +64,7 @@ class ProductsListView(LoginRequiredMixin, SingleTableView):
         context = super().get_context_data(*args, **kwargs)
         context['title'] = 'Products'
         context['form_path'] = 'products:create'
+        context['list'] = 'products:list'
         return context
 
 
@@ -73,7 +72,7 @@ class ProductsListView(LoginRequiredMixin, SingleTableView):
 Products Update
 """
 class ProductsUpdateView(LoginRequiredMixin, SuccessMessageMixin, generic.UpdateView):
-    template_name = "createupdate-products.html"
+    template_name = "createupdate.html"
     form_class = ProductsForm
     model = Products
     success_url = reverse_lazy('products:list')
@@ -82,8 +81,8 @@ class ProductsUpdateView(LoginRequiredMixin, SuccessMessageMixin, generic.Update
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
-        if self.heading:
-            ctx['heading'] = self.heading
+        ctx['heading'] = "Product Update"
+        ctx['list'] = 'products:list'
         return ctx
 
     def form_valid(self, form):
@@ -105,7 +104,7 @@ class ProductsUpdateView(LoginRequiredMixin, SuccessMessageMixin, generic.Update
 Products Delete
 """
 class ProductsDeleteView(LoginRequiredMixin, SuccessMessageMixin, generic.DeleteView):
-    template_name = "tablelist/delete.html"
+    template_name = "delete.html"
     model = Products
     success_url = reverse_lazy('products:list')
 
@@ -138,3 +137,73 @@ class ProductsDeleteView(LoginRequiredMixin, SuccessMessageMixin, generic.Delete
 # 	    instance = form.save()	
 # 	    return HttpResponse('<script>opener.closePopup(window, "%s", "%s", "#id_products");</script>' % (instance.pk, instance))
 #     return render(request, "createupdate-products.html", {"form": form, 'heading': 'Products'})
+
+
+
+class CategoryDetail(generic.DetailView):
+    model = Category
+    template_name = 'detail.html'
+
+
+class ProductDetail(generic.DetailView):
+    model = Products
+    template_name = 'product_details.html'
+
+
+
+class CategoryAddView(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
+    template_name = "createupdate.html"
+    form_class = CategoryForm
+    success_url = reverse_lazy('products:category-list')
+    success_message = 'Form has been successfully submitted.'
+    view_data_url = None
+    heading = None
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx['heading'] = "Product Create"
+        ctx['list'] = 'products:category-list'
+        return ctx
+
+"""
+Products List
+"""
+class CategoryListView(LoginRequiredMixin, SingleTableView):
+    model = Category
+    table_class = CategoryTable
+    template_name = 'dashboard/tablelist/table_list.html'
+    paginate_by = 10
+    ordering = "-id"
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['title'] = 'Category'
+        context['form_path'] = 'products:category-create'
+        context['list'] = 'products:category-list'
+        return context
+
+
+"""
+Products Update
+"""
+class CategoryUpdateView(LoginRequiredMixin, SuccessMessageMixin, generic.UpdateView):
+    template_name = "createupdate.html"
+    form_class = CategoryForm
+    model = Category
+    success_url = reverse_lazy('products:category-list')
+    success_message = 'Form has been successfully updated.'
+    heading = 'Category'
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx['heading'] = "Category Update"
+        ctx['list'] = 'products:category-list'
+        return ctx
+
+"""
+Products Delete
+"""
+class CategoryDeleteView(LoginRequiredMixin, SuccessMessageMixin, generic.DeleteView):
+    template_name = "delete.html"
+    model = Category
+    success_url = reverse_lazy('products:category-list')

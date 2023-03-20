@@ -79,6 +79,19 @@
         integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA=="
         data-cf-beacon='{"rayId":"7a1ab24c0c179e77","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2023.2.0","si":100}'
         crossorigin="anonymous"></script>
+        
+        <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+        <script src="{% static 'assets/js/jquery.matchHeight.js'%}"></script>
+        <script>
+            $(function () {
+                $('.category-image').matchHeight({
+                    byRow: true,
+                    property: 'height',
+                    target: null,
+                    remove: false
+                });
+                });
+        </script>
 </body>
 
 <!-- Mirrored from preview.colorlib.com/theme/capitalshop/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 02 Mar 2023 15:34:16 GMT -->
