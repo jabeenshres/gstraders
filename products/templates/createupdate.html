@@ -5,9 +5,9 @@
 {% block title %}{{ heading }}{% endblock %}
 
 {% block style %}
-    <link href="{% static 'assets/plugins/datetimepicker/css/classic.css' %}" rel="stylesheet" />
-	<!-- <link href="{% static 'assets/plugins/datetimepicker/css/classic.time.css' %}" rel="stylesheet" /> -->
-    <link href="{% static 'assets/plugins/datetimepicker/css/classic.date.css' %}" rel="stylesheet" />
+    <link href="{% static 'dashboard/plugins/datetimepicker/css/classic.css' %}" rel="stylesheet" />
+	<!-- <link href="{% static 'dashboard/plugins/datetimepicker/css/classic.time.css' %}" rel="stylesheet" /> -->
+    <link href="{% static 'dashboard/plugins/datetimepicker/css/classic.date.css' %}" rel="stylesheet" />
 
     <style>
         .pByfF {
@@ -44,7 +44,6 @@
                                         </div>
 
                                         <div>
-                                            {% include 'dashboard/base-data-view.html' %}
                                                 <a class="button" href="{% url list %}">
                                                     <button class="btn btn-primary">View-Data</button>
                                                 </a>

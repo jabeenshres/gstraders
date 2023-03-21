@@ -5,17 +5,15 @@
 
     <section class="slider-area ">
         <div class="slider-active">
-
-            <div class="single-slider slider-bg1 slider-height d-flex align-items-center">
+            {% for images in hero_pages %}
+            <div class="single-slider slider-height d-flex align-items-center" style="background-image: url('{{ images.image.url }}');">
                 <div class="container">
-                    <div class="rowr">
+                    <div class="{% if images.user_content == 1 %} rowr {% else %} row justify-content-end {% endif %}">
                         <div class="col-xxl-5 col-xl-6 col-lg-7 col-md-8  col-sm-10">
                             <div class="hero-caption text-center">
-                                <span>Fashion Sale</span>
-                                <h1 data-animation="bounceIn" data-delay="0.2s">Minimal Menz Style</h1>
-                                <p data-animation="fadeInUp" data-delay="0.4s">Consectetur adipisicing elit. Laborum
-                                    fuga incidunt laboriosam voluptas iure, delectus dignissimos facilis neque nulla
-                                    earum.</p>
+                                <span>{{ images.image_title }}</span>
+                                <h1 data-animation="bounceIn" data-delay="0.2s">{{ images.image_sub_title }}</h1>
+                                <p data-animation="fadeInUp" data-delay="0.4s">{{ images.short_description }}</p>
                                 <a href="#" class="btn_1 hero-btn" data-animation="fadeInUp" data-delay="0.7s">Shop
                                     Now</a>
                             </div>
@@ -23,6 +21,7 @@
                     </div>
                 </div>
             </div>
+            {%  endfor %}
 
             <div class="single-slider slider-bg2 slider-height d-flex align-items-center">
                 <div class="container">
@@ -81,7 +80,7 @@
                             </div>
                             <div class="nav nav-tabs" id="nav-tab" role="tablist">
                                 <a class="nav-link active" id="nav-one-tab" data-bs-toggle="tab" href="#nav-one"
-                                    role="tab" aria-controls="nav-one" aria-selected="true">Ladies Dhoti</a>
+                                    role="tab" aria-controls="nav-one" aria-selected="true">All Trending Products</a>
                                 <!-- <a class="nav-link" id="nav-two-tab" data-bs-toggle="tab" href="#nav-two" role="tab"
                                     aria-controls="nav-two" aria-selected="false">Gens Suit Cloth</a>
                                 <a class="nav-link" id="nav-three-tab" data-bs-toggle="tab" href="#nav-three" role="tab"
@@ -100,11 +99,11 @@
                 <div class="tab-pane fade show active" id="nav-one" role="tabpanel" aria-labelledby="nav-one-tab">
                     <div class="latest-items-active">
                             {% for product in products %}
-                            {% if product.is_trending and  product.category.title == "Ladies Dhoti" and forloop.counter0 < 4 %}
+                            {% if product.is_trending and forloop.counter0 < 15 %}
                                 <div class="properties pb-30">
                                     <div class="properties-card">
                                         <div class="properties-img">
-                                            <a href="{% url 'products:product_details' product.slug %}"><img src="{{ product.image.url }}" alt=""></a>
+                                            <a href="{% url 'products:product_details' product.slug %}"><img class="product-image" src="{{ product.image.url }}" alt=""></a>
                                             <div class="socal_icon">
                                                 <a href="#"><i class="ti-shopping-cart"></i></a>
                                                 <a href="#"><i class="ti-heart"></i></a>
@@ -280,7 +279,7 @@
                 <div class="properties pb-30">
                     <div class="properties-card">
                         <div class="properties-img">
-                            <a href="{% url 'products:product_details' product.slug %}"><img src="{{ product.image.url }}"
+                            <a href="{% url 'products:product_details' product.slug %}"><img class="product-image" src="{{ product.image.url }}"
                                     alt=""></a>
                             <div class="socal_icon">
                                 <a href="#"><i class="ti-shopping-cart"></i></a>
