@@ -4,9 +4,9 @@ from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django_tables2 import SingleTableView
 
-from extras.models import HeroPage
-from extras.forms import HeroPageForm
-from extras.tables import HeroPageTable
+from extras.models import HeroPage, Contact
+from extras.forms import HeroPageForm, ContactForm
+from extras.tables import HeroPageTable, ContactMessageTable
 
 class HeroPageAddView(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
     template_name = "createupdate.html"
@@ -23,7 +23,7 @@ class HeroPageAddView(LoginRequiredMixin, SuccessMessageMixin, generic.CreateVie
         return ctx
 
 """
-Products List
+Hero Page List
 """
 class HeroPageListView(LoginRequiredMixin, SingleTableView):
     model = HeroPage
@@ -40,7 +40,7 @@ class HeroPageListView(LoginRequiredMixin, SingleTableView):
 
 
 """
-Products Update
+Hero Page Update
 """
 class HeroPageUpdateView(LoginRequiredMixin, SuccessMessageMixin, generic.UpdateView):
     template_name = "createupdate.html"
@@ -57,9 +57,34 @@ class HeroPageUpdateView(LoginRequiredMixin, SuccessMessageMixin, generic.Update
         return ctx
 
 """
-Products Delete
+Hero Page Delete
 """
 class HeroPageDeleteView(LoginRequiredMixin, SuccessMessageMixin, generic.DeleteView):
     template_name = "delete.html"
     model = HeroPage
     success_url = reverse_lazy('extras:hero-page-list')
+
+
+
+"""
+Contact Create
+"""
+
+class ContactMessage(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
+    template_name = "contacts.html"
+    form_class = ContactForm
+    success_url = reverse_lazy('extras:contact-us')
+    success_message = 'Form has been successfully submitted.'
+
+
+class ContactListView(LoginRequiredMixin, SingleTableView):
+    model = Contact
+    table_class = ContactMessageTable
+    template_name = 'dashboard/tablelist/table_list.html'
+    paginate_by = 10
+    ordering = "-id"
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['title'] = 'Contact Message'
+        return context

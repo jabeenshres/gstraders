@@ -25,3 +25,13 @@ class HeroPage(models.Model):
 
     def __str__(self):
         return self.image_title
+    
+
+class Contact(models.Model):
+    message = models.TextField()
+    name = models.CharField(max_length = 55)
+    subject = models.CharField(max_length = 55)
+    email = models.EmailField()
+
+    def __str__(self):
+        return self.email
