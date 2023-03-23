@@ -88,7 +88,7 @@ class ContactMessage(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView
     template_name = "contacts.html"
     form_class = ContactForm
     success_url = reverse_lazy('extras:contact-us')
-    success_message = 'Form has been successfully submitted.'
+    success_message = 'Your contact message has been successfully submitted.'
 
 
 class ContactListView(LoginRequiredMixin, SingleTableView):
