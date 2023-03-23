@@ -8,6 +8,20 @@ from extras.models import HeroPage, Contact
 from extras.forms import HeroPageForm, ContactForm
 from extras.tables import HeroPageTable, ContactMessageTable
 
+from products.models import Products, Category
+
+class HomePageView(generic.TemplateView):
+    template_name = "ecommerce/index.html"
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        # context["hero_pages"] = HeroPage.objects.filter(is_displayed=True)
+        # context["categories"] = Category.objects.all()[0:5]
+        context["products"] = Products.objects.all()
+        context["products_liked"] = Products.objects.filter(is_liked=True)[::-1][0:15]
+
+        return context
+
 class HeroPageAddView(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
     template_name = "createupdate.html"
     form_class = HeroPageForm

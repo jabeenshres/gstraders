@@ -7,12 +7,11 @@ from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', TemplateView.as_view(template_name='ecommerce/index.html'), name='landing'),
 
     path('dashboard/', login_required(TemplateView.as_view(template_name='dashboard/dashboard.html')), name='dashboard-home'),
     path('gstraders/', include('products.urls')),
     path('gsadmin/',include("accounts.urls")),
-    path('extras/',include("extras.urls")),
+    path('',include("extras.urls")),
 
 ]
 

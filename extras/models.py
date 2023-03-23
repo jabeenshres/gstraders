@@ -10,11 +10,19 @@ class UserContentChoice:
         (RIGHT, "Right"),
     )
 class HeroPage(models.Model):
-    image_title = models.CharField(max_length=55)
+    image_title = models.CharField(
+        max_length=55,
+        blank = True,
+        null = True
+        )
     user_content = models.PositiveIntegerField(
         choices=UserContentChoice.choices
     )
-    image_sub_title = models.CharField(max_length=55)
+    image_sub_title = models.CharField(
+        max_length=55,
+        blank = True,
+        null = True
+        )
     short_description = models.TextField(
         _("Hero Image Description"), null=True, blank=True
     )

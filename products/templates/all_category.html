@@ -1,0 +1,51 @@
+{% extends 'ecommerce/base.html' %}
+{% load static %}
+{% block content %}
+    <main>
+
+        <div class="hero-area section-bg2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="slider-area">
+                            <div class="slider-height2 slider-bg4 d-flex align-items-center justify-content-center">
+                                <div class="hero-caption hero-caption2">
+                                    <h2>All Category</h2>
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb justify-content-center">
+                                            <li class="breadcrumb-item"><a href="{% url 'extras:landing' %}">Home</a></li>
+                                            <li class="breadcrumb-item"><a href="#">All Category</a></li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <section class="items-product1 pt-30">
+            <div class="container">
+                <div class="row">
+                    {% for category in categories %}
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                            <div class="single-items mb-20">
+                                <div class="items-img">
+                                    <img class="category-image" src="{{ category.image.url }}" alt="">
+                                </div>
+                                <div class="items-details">
+                                    <h4><a href="{% url 'products:category-detail' category.slug %}">{{ category.title }}</a></h4>
+                                    <a href="{% url 'products:category-detail' category.slug %}" class="browse-btn">Shop Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    
+                </div>
+            </div>
+        </section>
+
+    </main>
+{% endblock %}

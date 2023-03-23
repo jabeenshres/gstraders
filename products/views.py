@@ -206,3 +206,15 @@ class CategoryDeleteView(LoginRequiredMixin, SuccessMessageMixin, generic.Delete
     template_name = "delete.html"
     model = Category
     success_url = reverse_lazy('products:category-list')
+
+
+class CategoryInSite(LoginRequiredMixin, generic.TemplateView):
+    template_name = 'all_category.html'
+    # ordering = "-id"
+
+    # def get_context_data(self, *args, **kwargs):
+    #     context = super().get_context_data(*args, **kwargs)
+    #     context['title'] = 'Category'
+    #     context['form_path'] = 'products:category-create'
+    #     context['list'] = 'products:category-list'
+    #     return context

@@ -11,8 +11,8 @@
                     <div class="{% if images.user_content == 1 %} rowr {% else %} row justify-content-end {% endif %}">
                         <div class="col-xxl-5 col-xl-6 col-lg-7 col-md-8  col-sm-10">
                             <div class="hero-caption text-center">
-                                <span>{{ images.image_title }}</span>
-                                <h1 data-animation="bounceIn" data-delay="0.2s">{{ images.image_sub_title }}</h1>
+                                <span>{% if images.image_title %}{{ images.image_title }}{% endif %}</span>
+                                <h1 data-animation="bounceIn" data-delay="0.2s">{% if images.image_sub_title %}{{ images.image_sub_title }}{% endif %}</h1>
                                 <p data-animation="fadeInUp" data-delay="0.4s">{{ images.short_description }}</p>
                                 <a href="#" class="btn_1 hero-btn" data-animation="fadeInUp" data-delay="0.7s">Shop
                                     Now</a>
@@ -23,7 +23,8 @@
             </div>
             {%  endfor %}
 
-            <div class="single-slider slider-bg2 slider-height d-flex align-items-center">
+
+            <!-- <div class="single-slider slider-bg2 slider-height d-flex align-items-center">
                 <div class="container">
                     <div class="row justify-content-end">
                         <div class="col-xxl-5 col-xl-6 col-lg-7 col-md-8 col-sm-10">
@@ -39,7 +40,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </section>
 
@@ -55,8 +56,8 @@
                                 <img class="category-image" src="{{ category.image.url }}" alt="">
                             </div>
                             <div class="items-details">
-                                <h4><a href="pro-details.html">{{ category.title }}</a></h4>
-                                <a href="pro-details.html" class="browse-btn">Shop Now</a>
+                                <h4><a href="{% url 'products:category-detail' category.slug %}">{{ category.title }}</a></h4>
+                                <a href="{% url 'products:category-detail' category.slug %}" class="browse-btn">Shop Now</a>
                             </div>
                         </div>
                     </div>
@@ -114,7 +115,7 @@
                                             <h3><a href="{% url 'products:product_details' product.slug %}">{{ product.product_name }}</a></h3>
                                             <div class="properties-footer">
                                                 <div class="price">
-                                                    <span>Rs.{{ product.price }} <span>Rs.{{ product.discounted_price }}</span></span>
+                                                    <span>Rs.{{ product.price }} <span>{% if product.discounted_price  %}Rs.{{ product.discounted_price }}{% endif %}</span></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -142,7 +143,7 @@
                                             <h3><a href="pro-details.html">{{ product.product_name }}</a></h3>
                                             <div class="properties-footer">
                                                 <div class="price">
-                                                    <span>Rs.{{ product.price }} <span>Rs.{{ product.discounted_price }}</span></span>
+                                                    <span>Rs.{{ product.price }} <span>{% if product.discounted_price  %}Rs.{{ product.discounted_price }}{% endif %}</span></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -170,7 +171,7 @@
                                             <h3><a href="pro-details.html">{{ product.product_name }}</a></h3>
                                             <div class="properties-footer">
                                                 <div class="price">
-                                                    <span>Rs.{{ product.price }} <span>Rs.{{ product.discounted_price }}</span></span>
+                                                    <span>Rs.{{ product.price }} <span>{% if product.discounted_price  %}Rs.{{ product.discounted_price }}{% endif %}</span></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -198,7 +199,7 @@
                                             <h3><a href="pro-details.html">{{ product.product_name }}</a></h3>
                                             <div class="properties-footer">
                                                 <div class="price">
-                                                    <span>Rs.{{ product.price }} <span>Rs.{{ product.discounted_price }}</span></span>
+                                                    <span>Rs.{{ product.price }} <span>{% if product.discounted_price  %}Rs.{{ product.discounted_price }}{% endif %}</span></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -291,7 +292,7 @@
                             <h3><a href="{% url 'products:product_details' product.slug %}">{{ product.product_name }}</a></h3>
                             <div class="properties-footer">
                                 <div class="price">
-                                    <span>Rs.{{ product.price }} <span>Rs.{{ product.discounted_price }}</span></span>
+                                    <span>Rs.{{ product.price }} <span>{% if product.discounted_price  %}Rs.{{ product.discounted_price }}{% endif %}</span></span>
                                 </div>
                             </div>
                         </div>

@@ -1,5 +1,6 @@
 from django.urls import path
 from extras.views import (
+    HomePageView,
     HeroPageAddView,
     HeroPageListView,
     HeroPageUpdateView,
@@ -11,6 +12,8 @@ from extras.views import (
 app_name = "extras"
 
 urlpatterns = [
+    path("", HomePageView.as_view(), name='landing'),
+    
     path("create/", HeroPageAddView.as_view(), name='hero-page-create'),
     path("list/", HeroPageListView.as_view(), name='hero-page-list'),
     path("update/<int:pk>/", HeroPageUpdateView.as_view(), name='hero-page-update'),

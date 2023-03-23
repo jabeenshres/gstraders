@@ -39,15 +39,17 @@
                 <div class="menu-wrapper">
 
                     <div class="logo">
-                        <a href="{% url 'landing' %}"><img src="{% static 'dashboard/images/gslogo.png' %}" alt=""></a>
+                        <a href="{% url 'extras:landing' %}"><img src="{% static 'dashboard/images/gslogo.png' %}" alt=""></a>
                     </div>
 
                     <div class="main-menu d-none d-lg-block">
                         <nav>
                             <ul id="navigation">
-                                <li><a href="{% url 'landing' %}">Home</a></li>
+                                <li><a href="{% url 'extras:landing' %}">Home</a></li>
                                 {% for category in categories %}
+                                {% if category.is_displayed_header and forloop.counter0 < 4 %}
                                     <li><a href="{% url 'products:category-detail' category.slug  %}">{{ category.title }}</a></li>
+                                    {% endif %}
                                 {% endfor %}
 
                                 <!-- <li class="new"><a href="categories.html">Baby Collection</a></li> -->
@@ -67,7 +69,8 @@
                                         <li><a href="blog-details.html">Blog Details</a></li>
                                     </ul>
                                 </li> -->
-                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="{% url 'products:all-categories' %}">All Categories</a></li>
+                                <li><a href="{% url 'extras:contact-us' %}">Contact</a></li>
                             </ul>
                         </nav>
                     </div>

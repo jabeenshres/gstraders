@@ -10,7 +10,9 @@ from products.views import (
     CategoryAddView,
     CategoryListView,
     CategoryDeleteView,
-    CategoryUpdateView
+    CategoryUpdateView,
+
+    CategoryInSite
 )
 
 app_name = 'products'
@@ -32,6 +34,8 @@ urlpatterns = [
     path('<slug:slug>/', ProductDetail.as_view(), name='product_details'),
 
 
+    path("categories/all/", CategoryInSite.as_view(), name='all-categories'),
+    
     
 
     # path('delete/item/<int:pk>/', delete_item, name='item-delete'),

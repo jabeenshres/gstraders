@@ -37,10 +37,11 @@ class Category(models.Model):
     #     related_name='categories')
 
     class Meta:
-        ordering = ["title"]
+        ordering = ["-id"]
 
     def __str__(self):
         return self.title
+    
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title)
@@ -64,7 +65,9 @@ class Products(models.Model):
     discounted_price = models.DecimalField(
         _("Discounted price"),
         max_digits=8,
-        decimal_places=2
+        decimal_places=2,
+        blank=True,
+        null=True
     )
     image = models.ImageField(default='default.jpeg', upload_to='products')
     is_trending = models.BooleanField("Trending", default=False)
