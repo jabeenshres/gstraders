@@ -31,8 +31,8 @@ class HeroPage(models.Model):
         default=True
     )
 
-    def __str__(self):
-        return self.image_title
+    # def __str__(self):
+        # return self.image_title
     
 
 class Contact(models.Model):

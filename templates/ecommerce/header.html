@@ -1,6 +1,7 @@
 {% load static %}
 <header>
     <div class="header-area">
+        {% comment %}
         <div class="header-top d-none d-sm-block">
             <div class="container">
                 <div class="row">
@@ -30,10 +31,13 @@
                                 </ul>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
+        {% endcomment %}
+
         <div class="header-mid header-sticky">
             <div class="container">
                 <div class="menu-wrapper">
@@ -46,8 +50,8 @@
                         <nav>
                             <ul id="navigation">
                                 <li><a href="{% url 'extras:landing' %}">Home</a></li>
-                                {% for category in categories %}
-                                {% if category.is_displayed_header and forloop.counter0 < 4 %}
+                                {% for category in categories_header %}
+                                {% if forloop.counter0 < 4 %}
                                     <li><a href="{% url 'products:category-detail' category.slug  %}">{{ category.title }}</a></li>
                                     {% endif %}
                                 {% endfor %}
@@ -84,6 +88,7 @@
                                     </a>
                                 </div>
                             </li>
+
                             <!-- TODO Will need this later -->
                             <!-- <li> <a href="login.html"><span class="flaticon-user"></span></a></li>
                             <li class="cart"><a href="cart.html"><span class="flaticon-shopping-cart"></span></a> -->
@@ -93,9 +98,9 @@
                 </div>
 
                 <div class="search_input" id="search_input_box">
-                    <form class="search-inner d-flex justify-content-between ">
-                        <input type="text" class="form-control" id="search_input" placeholder="Search Here">
-                        <button type="submit" class="btn"></button>
+                    <form class="search-inner d-flex justify-content-between " method='GET' action='{% url "products:search" %}'>
+                        <input type="text" name='q' class="form-control" id="intry" placeholder="Search Here" value='{{ request.GET.q }}'>
+                        <button type="submit" class="btn" type="submit"></button>
                         <span class="ti-close" id="close_search" title="Close Search"></span>
                     </form>
                 </div>

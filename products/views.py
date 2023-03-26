@@ -1,3 +1,4 @@
+from django.shortcuts import render
 
 from django.views import generic
 from django.contrib.messages.views import SuccessMessageMixin
@@ -218,3 +219,11 @@ class CategoryInSite(LoginRequiredMixin, generic.TemplateView):
     #     context['form_path'] = 'products:category-create'
     #     context['list'] = 'products:category-list'
     #     return context
+
+
+def search(request):
+    print("test")
+    query = request.GET.get('q')
+    products = Products.objects.filter(product_name__icontains=query)
+
+    return render(request, 'product_search.html', {'products': products})

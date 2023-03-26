@@ -17,7 +17,7 @@ class HomePageView(generic.TemplateView):
         context = super().get_context_data(*args, **kwargs)
         # context["hero_pages"] = HeroPage.objects.filter(is_displayed=True)
         # context["categories"] = Category.objects.all()[0:5]
-        context["products"] = Products.objects.all()
+        context["products"] = Products.objects.filter(is_trending=True)[::-1][0:15]
         context["products_liked"] = Products.objects.filter(is_liked=True)[::-1][0:15]
 
         return context

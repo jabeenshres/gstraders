@@ -48,8 +48,8 @@
     <section class="items-product1 pt-30">
         <div class="container">
             <div class="row">
-                {% for category in categories %}
-                {% if category.is_displayed_header and forloop.counter0 < 3 %}
+                {% for category in categories_trending %}
+                {% if forloop.counter0 < 3 %}
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                         <div class="single-items mb-20">
                             <div class="items-img">
@@ -100,7 +100,7 @@
                 <div class="tab-pane fade show active" id="nav-one" role="tabpanel" aria-labelledby="nav-one-tab">
                     <div class="latest-items-active">
                             {% for product in products %}
-                            {% if product.is_trending and forloop.counter0 < 15 %}
+                            {% if forloop.counter0 < 15 %}
                                 <div class="properties pb-30">
                                     <div class="properties-card">
                                         <div class="properties-img">
@@ -362,9 +362,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> 
     </section> -->
-
+ 
     <!-- For later -->
     <!-- <div class="categories-area">
         <div class="container">
