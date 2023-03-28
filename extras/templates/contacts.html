@@ -1,6 +1,8 @@
 {% extends 'ecommerce/base.html' %}
 {% load static %}
 {% load widget_tweaks %}
+
+
 {% block content %}
 
 <main>
@@ -49,6 +51,7 @@
                                             rows="9" onfocus="this.placeholder = ''"
                                             onblur="this.placeholder = 'Enter Message'"
                                             placeholder=" Enter Message"></textarea>
+                                            {{ form.message.errors }}
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
@@ -56,6 +59,8 @@
                                         <input class="form-control valid" name="name" id="name" type="text"
                                             onfocus="this.placeholder = ''"
                                             onblur="this.placeholder = 'Enter your name'" placeholder="Enter your name">
+                                            {{ form.name.errors }}
+                                            
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
@@ -64,6 +69,8 @@
                                             onfocus="this.placeholder = ''"
                                             onblur="this.placeholder = 'Enter email address'" placeholder="Email">
                                     </div>
+                                    {{ form.email.errors }}
+
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
@@ -71,10 +78,14 @@
                                             onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'"
                                             placeholder="Enter Subject">
                                     </div>
+                                    {{ form.subject.errors }}
+
                                 </div>
                               
                             </div>
-                                <button type="submit" class="btn btn-danger ml-4">Submit</button>
+                            <div class="form-group mt-3">
+                                <button type="submit" class="button button-contactForm boxed-btn">Submit</button>
+                            </div>
                         </div>
                     </form>
                 </div>
