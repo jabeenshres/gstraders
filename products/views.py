@@ -209,7 +209,7 @@ class CategoryDeleteView(LoginRequiredMixin, SuccessMessageMixin, generic.Delete
     success_url = reverse_lazy('products:category-list')
 
 
-class CategoryInSite(LoginRequiredMixin, generic.TemplateView):
+class CategoryInSite(generic.TemplateView):
     template_name = 'all_category.html'
     # ordering = "-id"
 
@@ -222,7 +222,6 @@ class CategoryInSite(LoginRequiredMixin, generic.TemplateView):
 
 
 def search(request):
-    print("test")
     query = request.GET.get('q')
     products = Products.objects.filter(product_name__icontains=query)
 

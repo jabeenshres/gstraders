@@ -84,7 +84,7 @@ class HeroPageDeleteView(LoginRequiredMixin, SuccessMessageMixin, generic.Delete
 Contact Create
 """
 
-class ContactMessage(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
+class ContactMessage(SuccessMessageMixin, generic.CreateView):
     template_name = "contacts.html"
     form_class = ContactForm
     success_url = reverse_lazy('extras:contact-us')
