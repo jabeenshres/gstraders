@@ -39,6 +39,10 @@ class Contact(models.Model):
     message = models.TextField()
     name = models.CharField(max_length = 55)
     subject = models.CharField(max_length = 55)
+    contact_number = models.CharField(
+        max_length=15,
+        blank=True,
+        null=True)
     email = models.EmailField()
 
     def __str__(self):
