@@ -14,8 +14,7 @@
                                 <span>{% if images.image_title %}{{ images.image_title }}{% endif %}</span>
                                 <h1 data-animation="bounceIn" data-delay="0.2s">{% if images.image_sub_title %}{{ images.image_sub_title }}{% endif %}</h1>
                                 <p data-animation="fadeInUp" data-delay="0.4s">{{ images.short_description }}</p>
-                                <a href="#" class="btn_1 hero-btn" data-animation="fadeInUp" data-delay="0.7s">Shop
-                                    Now</a>
+                                <a class="btn_1 hero-btn" data-animation="fadeInUp" data-delay="0.7s" href="{% url 'products:all-categories' %}">Shop Now</a>
                             </div>
                         </div>
                     </div>
