@@ -1,12 +1,3 @@
-/*
- Highcharts JS v8.2.0 (2020-08-20)
-
- Highcharts cylinder module
-
- (c) 2010-2019 Kacper Madej
-
- License: www.highcharts.com/license
-*/
 (function(b){"object"===typeof module&&module.exports?(b["default"]=b,module.exports=b):"function"===typeof define&&define.amd?define("highcharts/modules/cylinder",["highcharts","highcharts/highcharts-3d"],function(g){b(g);b.Highcharts=g;return b}):b("undefined"!==typeof Highcharts?Highcharts:void 0)})(function(b){function g(b,h,g,f){b.hasOwnProperty(h)||(b[h]=f.apply(null,g))}b=b?b._modules:{};g(b,"Series/CylinderSeries.js",[b["Core/Globals.js"],b["Core/Color.js"],b["Extensions/Math3D.js"],b["Core/Utilities.js"]],
 function(b,g,l,f){var h=g.parse,r=l.perspective;g=f.merge;var t=f.pick;l=f.seriesType;var u=b.charts,v=b.deg2rad;f=b.Renderer.prototype;var w=f.cuboidPath,k=function(a){return!a.some(function(a){return"C"===a[0]})};l("cylinder","column",{},{},{shapeType:"cylinder",hasNewShapeType:b.seriesTypes.column.prototype.pointClass.prototype.hasNewShapeType});b=g(f.elements3d.cuboid,{parts:["top","bottom","front","back"],pathType:"cylinder",fillSetter:function(a){this.singleSetterForParts("fill",null,{front:a,
 back:a,top:h(a).brighten(.1).get(),bottom:h(a).brighten(-.1).get()});this.color=this.fill=a;return this}});f.elements3d.cylinder=b;f.cylinder=function(a){return this.element3d("cylinder",a)};f.cylinderPath=function(a){var c=u[this.chartIndex],d=w.call(this,a),e=!d.isTop,b=!d.isFront,f=this.getCylinderEnd(c,a);a=this.getCylinderEnd(c,a,!0);return{front:this.getCylinderFront(f,a),back:this.getCylinderBack(f,a),top:f,bottom:a,zIndexes:{top:e?3:0,bottom:e?0:3,front:b?2:1,back:b?1:2,group:d.zIndexes.group}}};

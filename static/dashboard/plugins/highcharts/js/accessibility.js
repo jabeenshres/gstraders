@@ -1,13 +1,3 @@
-/*
- Highcharts JS v8.2.0 (2020-08-20)
-
- Accessibility module
-
- (c) 2010-2019 Highsoft AS
- Author: Oystein Moseng
-
- License: www.highcharts.com/license
-*/
 (function(a){"object"===typeof module&&module.exports?(a["default"]=a,module.exports=a):"function"===typeof define&&define.amd?define("highcharts/modules/accessibility",["highcharts"],function(r){a(r);a.Highcharts=r;return a}):a("undefined"!==typeof Highcharts?Highcharts:void 0)})(function(a){function r(a,h,q,n){a.hasOwnProperty(h)||(a[h]=n.apply(null,q))}a=a?a._modules:{};r(a,"Accessibility/Utils/HTMLUtilities.js",[a["Core/Utilities.js"],a["Core/Globals.js"]],function(a,h){function m(a){return a.replace(/&/g,
 "&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#x27;").replace(/\//g,"&#x2F;")}var n=a.merge,p=h.win,l=p.document;return{addClass:function(a,l){a.classList?a.classList.add(l):0>a.className.indexOf(l)&&(a.className+=l)},escapeStringForHTML:m,getElement:function(a){return l.getElementById(a)},getFakeMouseEvent:function(a){if("function"===typeof p.MouseEvent)return new p.MouseEvent(a);if(l.createEvent){var g=l.createEvent("MouseEvent");if(g.initMouseEvent)return g.initMouseEvent(a,
 !0,!0,p,"click"===a?1:0,0,0,0,0,!1,!1,!1,!1,0,null),g}return{type:a}},removeElement:function(a){a&&a.parentNode&&a.parentNode.removeChild(a)},reverseChildNodes:function(a){for(var l=a.childNodes.length;l--;)a.appendChild(a.childNodes[l])},setElAttrs:function(a,l){Object.keys(l).forEach(function(k){var e=l[k];null===e?a.removeAttribute(k):(e=m(""+e),a.setAttribute(k,e))})},stripHTMLTagsFromString:function(a){return"string"===typeof a?a.replace(/<\/?[^>]+(>|$)/g,""):a},visuallyHideElement:function(a){n(!0,

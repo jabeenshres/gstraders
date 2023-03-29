@@ -1,6 +1,3 @@
-// jQuery plugin to display a custom jQuery File Uploader interface.
-// (C) 2019 CubicleSoft.  All Rights Reserved.
-
 (function($) {
 	var EscapeHTML = function(text) {
 		var map = {

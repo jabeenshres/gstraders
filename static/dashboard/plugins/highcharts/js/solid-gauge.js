@@ -1,12 +1,3 @@
-/*
- Highcharts JS v8.2.0 (2020-08-20)
-
- Solid angular gauge module
-
- (c) 2010-2019 Torstein Honsi
-
- License: www.highcharts.com/license
-*/
 (function(a){"object"===typeof module&&module.exports?(a["default"]=a,module.exports=a):"function"===typeof define&&define.amd?define("highcharts/modules/solid-gauge",["highcharts","highcharts/highcharts-more"],function(g){a(g);a.Highcharts=g;return a}):a("undefined"!==typeof Highcharts?Highcharts:void 0)})(function(a){function g(a,r,g,c){a.hasOwnProperty(r)||(a[r]=c.apply(null,g))}a=a?a._modules:{};g(a,"Series/SolidGaugeSeries.js",[a["Core/Color.js"],a["Core/Globals.js"],a["Mixins/LegendSymbol.js"],
 a["Core/Utilities.js"]],function(a,g,x,c){var k=a.parse,r=c.clamp,u=c.extend,v=c.isNumber,y=c.merge,t=c.pick,w=c.pInt;a=c.seriesType;c=c.wrap;c(g.Renderer.prototype.symbols,"arc",function(e,a,l,b,z,d){e=e(a,l,b,z,d);d.rounded&&(b=((d.r||b)-(d.innerR||0))/2,a=e[0],d=e[2],"M"===a[0]&&"L"===d[0]&&(a=["A",b,b,0,1,1,a[1],a[2]],e[2]=["A",b,b,0,1,1,d[1],d[2]],e[4]=a));return e});var m;(function(a){var e={initDataClasses:function(a){var e=this.chart,l,d=0,h=this.options;this.dataClasses=l=[];a.dataClasses.forEach(function(b,
 f){b=y(b);l.push(b);b.color||("category"===h.dataClassColor?(f=e.options.colors,b.color=f[d++],d===f.length&&(d=0)):b.color=k(h.minColor).tweenTo(k(h.maxColor),f/(a.dataClasses.length-1)))})},initStops:function(a){this.stops=a.stops||[[0,this.options.minColor],[1,this.options.maxColor]];this.stops.forEach(function(a){a.color=k(a[1])})},toColor:function(a,e){var b=this.stops,d=this.dataClasses,h;if(d)for(h=d.length;h--;){var c=d[h];var f=c.from;b=c.to;if(("undefined"===typeof f||a>=f)&&("undefined"===

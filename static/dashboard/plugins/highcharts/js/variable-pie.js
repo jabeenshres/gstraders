@@ -1,12 +1,3 @@
-/*
- Highcharts JS v8.2.0 (2020-08-20)
-
- Variable Pie module for Highcharts
-
- (c) 2010-2019 Grzegorz Blachliski
-
- License: www.highcharts.com/license
-*/
 (function(b){"object"===typeof module&&module.exports?(b["default"]=b,module.exports=b):"function"===typeof define&&define.amd?define("highcharts/modules/variable-pie",["highcharts"],function(g){b(g);b.Highcharts=g;return b}):b("undefined"!==typeof Highcharts?Highcharts:void 0)})(function(b){function g(b,d,g,n){b.hasOwnProperty(d)||(b[d]=n.apply(null,g))}b=b?b._modules:{};g(b,"Series/VariablePieSeries.js",[b["Core/Globals.js"],b["Core/Utilities.js"]],function(b,d){var g=d.arrayMax,n=d.arrayMin,w=
 d.clamp,x=d.fireEvent,p=d.pick;d=d.seriesType;var y=b.seriesTypes.pie.prototype;d("variablepie","pie",{minPointSize:"10%",maxPointSize:"100%",zMin:void 0,zMax:void 0,sizeBy:"area",tooltip:{pointFormat:'<span style="color:{point.color}">\u25cf</span> {series.name}<br/>Value: {point.y}<br/>Size: {point.z}<br/>'}},{pointArrayMap:["y","z"],parallelArrays:["x","y","z"],redraw:function(){this.center=null;y.redraw.call(this,arguments)},zValEval:function(a){return"number"!==typeof a||isNaN(a)?null:!0},calculateExtremes:function(){var a=
 this.chart,b=this.options;var c=this.zData;var d=Math.min(a.plotWidth,a.plotHeight)-2*(b.slicedOffset||0),l={};a=this.center||this.getCenter();["minPointSize","maxPointSize"].forEach(function(a){var c=b[a],k=/%$/.test(c);c=parseInt(c,10);l[a]=k?d*c/100:2*c});this.minPxSize=a[3]+l.minPointSize;this.maxPxSize=w(a[2],a[3]+l.minPointSize,l.maxPointSize);c.length&&(a=p(b.zMin,n(c.filter(this.zValEval))),c=p(b.zMax,g(c.filter(this.zValEval))),this.getRadii(a,c,this.minPxSize,this.maxPxSize))},getRadii:function(a,

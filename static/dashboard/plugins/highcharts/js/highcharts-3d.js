@@ -1,10 +1,3 @@
-/*
- Highcharts JS v8.2.0 (2020-08-20)
-
- 3D features for Highcharts JS
-
- License: www.highcharts.com/license
-*/
 (function(a){"object"===typeof module&&module.exports?(a["default"]=a,module.exports=a):"function"===typeof define&&define.amd?define("highcharts/highcharts-3d",["highcharts"],function(B){a(B);a.Highcharts=B;return a}):a("undefined"!==typeof Highcharts?Highcharts:void 0)})(function(a){function B(a,l,u,d){a.hasOwnProperty(l)||(a[l]=d.apply(null,u))}a=a?a._modules:{};B(a,"Extensions/Math3D.js",[a["Core/Globals.js"],a["Core/Utilities.js"]],function(a,l){var u=l.pick,d=a.deg2rad,m=a.perspective3D=function(d,
 k,h){k=0<h&&h<Number.POSITIVE_INFINITY?h/(d.z+k.z+h):1;return{x:d.x*k,y:d.y*k}},w=a.perspective=function(k,a,h,r){var b=a.options.chart.options3d,p=u(r,h?a.inverted:!1),n={x:a.plotWidth/2,y:a.plotHeight/2,z:b.depth/2,vd:u(b.depth,1)*u(b.viewDistance,0)},q=a.scale3d||1;r=d*b.beta*(p?-1:1);b=d*b.alpha*(p?-1:1);var c=Math.cos(b),A=Math.cos(-r),v=Math.sin(b),e=Math.sin(-r);h||(n.x+=a.plotLeft,n.y+=a.plotTop);return k.map(function(b){var d=(p?b.y:b.x)-n.x;var h=(p?b.x:b.y)-n.y;b=(b.z||0)-n.z;d={x:A*d-
 e*b,y:-v*e*d+c*h-A*v*b,z:c*e*d+v*h+c*A*b};h=m(d,n,n.vd);h.x=h.x*q+n.x;h.y=h.y*q+n.y;h.z=d.z*q+n.z;return{x:p?h.y:h.x,y:p?h.x:h.y,z:h.z}})};l=a.pointCameraDistance=function(d,k){var h=k.options.chart.options3d,a=k.plotWidth/2;k=k.plotHeight/2;h=u(h.depth,1)*u(h.viewDistance,0)+h.depth;return Math.sqrt(Math.pow(a-u(d.plotX,d.x),2)+Math.pow(k-u(d.plotY,d.y),2)+Math.pow(h-u(d.plotZ,d.z),2))};var k=a.shapeArea=function(d){var k=0,h;for(h=0;h<d.length;h++){var a=(h+1)%d.length;k+=d[h].x*d[a].y-d[a].x*d[h].y}return k/

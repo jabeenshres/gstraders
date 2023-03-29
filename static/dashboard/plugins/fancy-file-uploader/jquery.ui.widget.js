@@ -1,10 +1,3 @@
-/*! jQuery UI - v1.12.1+0b7246b6eeadfa9e2696e22f3230f6452f8129dc - 2020-02-20
- * http://jqueryui.com
- * Includes: widget.js
- * Copyright jQuery Foundation and other contributors; Licensed MIT */
-
-/* global define, require */
-/* eslint-disable no-param-reassign, new-cap, jsdoc/require-jsdoc */
 
 (function (factory) {
   'use strict';
@@ -25,23 +18,7 @@
 
   $.ui.version = '1.12.1';
 
-  /*!
-   * jQuery UI Widget 1.12.1
-   * http://jqueryui.com
-   *
-   * Copyright jQuery Foundation and other contributors
-   * Released under the MIT license.
-   * http://jquery.org/license
-   */
 
-  //>>label: Widget
-  //>>group: Core
-  //>>description: Provides a factory for creating stateful widgets with a common API.
-  //>>docs: http://api.jqueryui.com/jQuery.widget/
-  //>>demos: http://jqueryui.com/widget/
-
-  // Support: jQuery 1.9.x or older
-  // $.expr[ ":" ] is deprecated.
   if (!$.expr.pseudos) {
     $.expr.pseudos = $.expr[':'];
   }

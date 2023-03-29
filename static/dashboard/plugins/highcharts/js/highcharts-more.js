@@ -1,10 +1,3 @@
-/*
- Highcharts JS v8.2.0 (2020-08-20)
-
- (c) 2009-2018 Torstein Honsi
-
- License: www.highcharts.com/license
-*/
 (function(d){"object"===typeof module&&module.exports?(d["default"]=d,module.exports=d):"function"===typeof define&&define.amd?define("highcharts/highcharts-more",["highcharts"],function(C){d(C);d.Highcharts=C;return d}):d("undefined"!==typeof Highcharts?Highcharts:void 0)})(function(d){function C(d,a,g,h){d.hasOwnProperty(a)||(d[a]=h.apply(null,g))}d=d?d._modules:{};C(d,"Extensions/Pane.js",[d["Core/Chart/Chart.js"],d["Core/Globals.js"],d["Core/Pointer.js"],d["Core/Utilities.js"],d["Mixins/CenteredSeries.js"]],
 function(d,a,g,h,b){function r(m,l,e){return Math.sqrt(Math.pow(m-e[0],2)+Math.pow(l-e[1],2))<=e[2]/2}var t=h.addEvent,x=h.extend,B=h.merge,z=h.pick,l=h.splat;d.prototype.collectionsWithUpdate.push("pane");h=function(){function m(m,l){this.options=this.chart=this.center=this.background=void 0;this.coll="pane";this.defaultOptions={center:["50%","50%"],size:"85%",innerSize:"0%",startAngle:0};this.defaultBackgroundOptions={shape:"circle",borderWidth:1,borderColor:"#cccccc",backgroundColor:{linearGradient:{x1:0,
 y1:0,x2:0,y2:1},stops:[[0,"#ffffff"],[1,"#e6e6e6"]]},from:-Number.MAX_VALUE,innerRadius:0,to:Number.MAX_VALUE,outerRadius:"105%"};this.init(m,l)}m.prototype.init=function(m,l){this.chart=l;this.background=[];l.pane.push(this);this.setOptions(m)};m.prototype.setOptions=function(m){this.options=B(this.defaultOptions,this.chart.angular?{background:{}}:void 0,m)};m.prototype.render=function(){var m=this.options,e=this.options.background,a=this.chart.renderer;this.group||(this.group=a.g("pane-group").attr({zIndex:m.zIndex||

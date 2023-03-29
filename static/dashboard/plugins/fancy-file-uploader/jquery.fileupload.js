@@ -1,16 +1,3 @@
-/*
- * jQuery File Upload Plugin
- * https://github.com/blueimp/jQuery-File-Upload
- *
- * Copyright 2010, Sebastian Tschan
- * https://blueimp.net
- *
- * Licensed under the MIT license:
- * https://opensource.org/licenses/MIT
- */
-
-/* global define, require */
-/* eslint-disable new-cap */
 
 (function (factory) {
   'use strict';

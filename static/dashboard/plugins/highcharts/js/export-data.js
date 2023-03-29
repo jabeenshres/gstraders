@@ -1,12 +1,3 @@
-/*
- Highcharts JS v8.2.0 (2020-08-20)
-
- Exporting module
-
- (c) 2010-2019 Torstein Honsi
-
- License: www.highcharts.com/license
-*/
 (function(a){"object"===typeof module&&module.exports?(a["default"]=a,module.exports=a):"function"===typeof define&&define.amd?define("highcharts/modules/export-data",["highcharts","highcharts/modules/exporting"],function(g){a(g);a.Highcharts=g;return a}):a("undefined"!==typeof Highcharts?Highcharts:void 0)})(function(a){function g(a,d,e,c){a.hasOwnProperty(d)||(a[d]=c.apply(null,e))}a=a?a._modules:{};g(a,"Extensions/DownloadURL.js",[a["Core/Globals.js"]],function(a){var d=a.win,e=d.navigator,c=d.document,
 g=d.URL||d.webkitURL||d,u=/Edge\/\d+/.test(e.userAgent),v=a.dataURLtoBlob=function(f){if((f=f.match(/data:([^;]*)(;base64)?,([0-9A-Za-z+/]+)/))&&3<f.length&&d.atob&&d.ArrayBuffer&&d.Uint8Array&&d.Blob&&g.createObjectURL){var a=d.atob(f[3]),c=new d.ArrayBuffer(a.length);c=new d.Uint8Array(c);for(var e=0;e<c.length;++e)c[e]=a.charCodeAt(e);f=new d.Blob([c],{type:f[1]});return g.createObjectURL(f)}};a=a.downloadURL=function(a,p){var f=c.createElement("a");if("string"===typeof a||a instanceof String||
 !e.msSaveOrOpenBlob){a=""+a;if(u||2E6<a.length)if(a=v(a)||"",!a)throw Error("Failed to convert to blob");if("undefined"!==typeof f.download)f.href=a,f.download=p,c.body.appendChild(f),f.click(),c.body.removeChild(f);else try{var g=d.open(a,"chart");if("undefined"===typeof g||null===g)throw Error("Failed to open window");}catch(E){d.location.href=a}}else e.msSaveOrOpenBlob(a,p)};return{dataURLtoBlob:v,downloadURL:a}});g(a,"Extensions/ExportData.js",[a["Core/Axis/Axis.js"],a["Core/Chart/Chart.js"],

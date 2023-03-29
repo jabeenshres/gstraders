@@ -40,11 +40,14 @@
                                             <div class="properties-img">
                                                 <a href="{% url 'products:product_details' product.slug %}"><img class="product-image" src="{{ product.image.url }}"
                                                         alt=""></a>
+                                                {% comment %}
                                                 <div class="socal_icon">
                                                     <a href="#"><i class="ti-shopping-cart"></i></a>
                                                     <a href="#"><i class="ti-heart"></i></a>
                                                     <a href="#"><i class="ti-zoom-in"></i></a>
                                                 </div>
+                                                {% endcomment %}
+
                                             </div>
                                             <div class="properties-caption properties-caption2">
                                                 <h3><a href="{% url 'products:product_details' product.slug %}">{{ product.product_name }}</a></h3>

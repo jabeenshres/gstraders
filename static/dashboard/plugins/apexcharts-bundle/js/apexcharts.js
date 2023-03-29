@@ -1,8 +1,3 @@
-/*!
- * ApexCharts v3.19.0
- * (c) 2018-2020 Juned Chhipa
- * Released under the MIT License.
- */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :
@@ -26414,9 +26409,7 @@
     return SVG;
   });
 
-  /*! svg.filter.js - v2.0.2 - 2016-02-24
-  * https://github.com/wout/svg.filter.js
-  * Copyright (c) 2016 Wout Fierens; Licensed MIT */
+
   (function() {
 
     // Main filter class
@@ -27445,9 +27438,7 @@
   }
   }());
 
-  /*! svg.draggable.js - v2.2.2 - 2019-01-08
-  * https://github.com/svgdotjs/svg.draggable.js
-  * Copyright (c) 2019 Wout Fierens; Licensed MIT */
+
   (function() {
 
     // creates handler, saves it

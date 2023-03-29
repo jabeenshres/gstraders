@@ -1,12 +1,3 @@
-/*
- Highcharts JS v8.2.0 (2020-08-20)
-
- Highcharts funnel module
-
- (c) 2010-2019 Kacper Madej
-
- License: www.highcharts.com/license
-*/
 (function(d){"object"===typeof module&&module.exports?(d["default"]=d,module.exports=d):"function"===typeof define&&define.amd?define("highcharts/modules/funnel3d",["highcharts","highcharts/highcharts-3d","highcharts/modules/cylinder"],function(y){d(y);d.Highcharts=y;return d}):d("undefined"!==typeof Highcharts?Highcharts:void 0)})(function(d){function y(d,m,k,h){d.hasOwnProperty(m)||(d[m]=h.apply(null,k))}d=d?d._modules:{};y(d,"Series/Funnel3DSeries.js",[d["Core/Globals.js"],d["Extensions/Math3D.js"],
 d["Core/Color.js"],d["Core/Utilities.js"]],function(d,m,k,h){var y=m.perspective,l=k.parse,J=h.error,E=h.extend,p=h.merge,C=h.pick,B=h.relativeLength;k=h.seriesType;var H=d.charts,K=d.seriesTypes;m=d.Renderer.prototype;var L=m.cuboidPath;k("funnel3d","column",{center:["50%","50%"],width:"90%",neckWidth:"30%",height:"100%",neckHeight:"25%",reversed:!1,gradientForSides:!0,animation:!1,edgeWidth:0,colorByPoint:!0,showInLegend:!1,dataLabels:{align:"right",crop:!1,inside:!1,overflow:"allow"}},{bindAxes:function(){d.Series.prototype.bindAxes.apply(this,
 arguments);E(this.xAxis.options,{gridLineWidth:0,lineWidth:0,title:null,tickPositions:[]});E(this.yAxis.options,{gridLineWidth:0,title:null,labels:{enabled:!1}})},translate3dShapes:d.noop,translate:function(){d.Series.prototype.translate.apply(this,arguments);var a=0,b=this.chart,c=this.options,g=c.reversed,u=c.ignoreHiddenPoint,e=b.plotWidth,F=b.plotHeight,f=0,I=c.center,w=B(I[0],e),t=B(I[1],F),p=B(c.width,e),q,v,n=B(c.height,F),m=B(c.neckWidth,e),h=B(c.neckHeight,F),k=t-n/2+n-h;e=this.data;var z,

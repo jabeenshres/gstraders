@@ -1,10 +1,4 @@
-/*
- * BSTable
- * @description  Javascript (JQuery) library to make bootstrap tables editable. Inspired by Tito Hinostroza's library Bootstable. BSTable Copyright (C) 2020 Thomas Rokicki
- * 
- * @version 1.0
- * @author Thomas Rokicki (CraftingGamerTom), Tito Hinostroza (t-edson)
- */
+
 
 "use strict";
 

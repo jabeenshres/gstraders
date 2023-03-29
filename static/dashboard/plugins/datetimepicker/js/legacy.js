@@ -71,12 +71,6 @@ if ( ![].indexOf ) {
 }
 
 
-/*!
- * Cross-Browser Split 1.1.1
- * Copyright 2007-2012 Steven Levithan <stevenlevithan.com>
- * Available under the MIT License
- * http://blog.stevenlevithan.com/archives/cross-browser-split
- */
 var nativeSplit = String.prototype.split, compliantExecNpcg = /()??/.exec('')[1] === undefined
 String.prototype.split = function(separator, limit) {
     var str = this

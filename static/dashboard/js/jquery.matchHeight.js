@@ -1,8 +1,3 @@
-/**
-* jquery-match-height master by @liabru
-* http://brm.io/jquery-match-height/
-* License: MIT
-*/
 
 ;(function(factory) { // eslint-disable-line no-extra-semi
     'use strict';
