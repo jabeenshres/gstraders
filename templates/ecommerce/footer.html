@@ -41,53 +41,31 @@
                             <div class="single-footer-caption mb-20">
 
                                 <div class="footer-logo mb-35">
-                                    <a href="index.html"><img src="{% static 'assets/img/logo/logo2_footer.png' %}" alt=""></a>
+                                    <a href="{% url 'extras:landing' %}"><img src="{% static 'assets/img/logo/gslogo_footer.png' %}" alt=""></a>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    {% for category in categories_header %}
+                    {% if forloop.counter0 < 4 %}
                     <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6">
                         <div class="single-footer-caption mb-50">
                             <div class="footer-tittle">
-                                <h4>Shop Men</h4>
-                                <ul>
-                                    <li><a href="#">Clothing Fashion</a></li>
-                                    <li><a href="#">Winter</a></li>
-                                    <li><a href="#">Summer</a></li>
-                                    <li><a href="#">Formal</a></li>
-                                    <li><a href="#">Casual</a></li>
-                                </ul>
+                                <h4><a href="{% url 'products:category-detail' category.slug  %}">{{ category.title }}</a></h4>
+                                {% for product in category.products.all %}
+                                    {% if forloop.counter0 < 6 %}
+                                    <ul>
+                                        <li><a href="{% url 'products:product_details' product.slug %}">{{ product.product_name }}</a></li>
+
+                                    </ul>
+                                    {% endif %}
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6">
-                        <div class="single-footer-caption mb-50">
-                            <div class="footer-tittle">
-                                <h4>Shop Women</h4>
-                                <ul>
-                                    <li><a href="#">Clothing Fashion</a></li>
-                                    <li><a href="#">Winter</a></li>
-                                    <li><a href="#">Summer</a></li>
-                                    <li><a href="#">Formal</a></li>
-                                    <li><a href="#">Casual</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6">
-                        <div class="single-footer-caption mb-50">
-                            <div class="footer-tittle">
-                                <h4>Baby Collection</h4>
-                                <ul>
-                                    <li><a href="#">Clothing Fashion</a></li>
-                                    <li><a href="#">Winter</a></li>
-                                    <li><a href="#">Summer</a></li>
-                                    <li><a href="#">Formal</a></li>
-                                    <li><a href="#">Casual</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    {% endif %}
+                    {% endfor %}
+                    {% comment %}
                     <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6">
                         <div class="single-footer-caption mb-50">
                             <div class="footer-tittle">
@@ -103,6 +81,8 @@
                             </div>
                         </div>
                     </div>
+                    {% endcomment %}
+
                 </div>
             </div>
         </div>

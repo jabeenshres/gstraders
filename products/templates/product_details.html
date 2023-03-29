@@ -33,7 +33,7 @@
                         <div class="row">
                             <div class="col-xl-12">
 
-                                <div class="single-services d-flex align-items-center mb-0">
+                                <div class="single-services d-flex align-items-center mb-0" style="background-color:{{ object.background_color }};">
                                     <div class="features-img">
                                         <img src="{{ object.image.url }}" alt="">
                                     </div>
@@ -73,7 +73,7 @@
 
                             <nav>
                                 <div class="nav nav-tabs " id="nav-tab" role="tablist">
-                                    <a class="nav-link active" id="nav-one-tab" data-bs-toggle="tab" href="#nav-one"
+                                    <a class="nav-link active" id="nav-one-tab" data-bs-toggle="tab" href="#nav-one" style="color:{{ object.background_color }}; border-bottom: 4px solid {{ object.background_color }} "
                                         role="tab" aria-controls="nav-one" aria-selected="true">Description</a>
                                     <!-- TODO will need later -->
                                     {% comment %}

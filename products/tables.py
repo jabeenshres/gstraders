@@ -28,9 +28,12 @@ class ProductsTable(tables.Table):
         }
         orderable = False
 
-
+    def render_description(self, value):
+        return str(value[:99] + "...")
 
 class CategoryTable(tables.Table):
+    description = tables.Column()
+
     edit = tables.TemplateColumn(
         template_name='dashboard/tablelist/edit_button.html',
         extra_context={
@@ -54,3 +57,6 @@ class CategoryTable(tables.Table):
             'thead' : {'class': 'thead-dark', },
         }
         orderable = False
+
+    def render_description(self, value):
+        return str(value[:99] + "...")

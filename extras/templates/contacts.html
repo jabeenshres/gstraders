@@ -72,6 +72,15 @@
                                     {{ form.email.errors }}
 
                                 </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <input class="form-control valid" name="contact_number" id="contact_number" type="contact_number"
+                                            onfocus="this.placeholder = ''"
+                                            onblur="this.placeholder = 'Enter Contact Number'" placeholder="Contact Number">
+                                    </div>
+                                    {{ form.contact_number.errors }}
+
+                                </div>
                                 <div class="col-12">
                                     <div class="form-group">
                                         <input class="form-control" name="subject" id="subject" type="text"
