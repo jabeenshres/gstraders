@@ -11,7 +11,7 @@ class UserContentChoice:
     )
 class HeroPage(models.Model):
     image_title = models.CharField(
-        max_length=55,
+        max_length=255,
         blank = True,
         null = True
         )
@@ -19,7 +19,7 @@ class HeroPage(models.Model):
         choices=UserContentChoice.choices
     )
     image_sub_title = models.CharField(
-        max_length=55,
+        max_length=255,
         blank = True,
         null = True
         )
