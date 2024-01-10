@@ -38,7 +38,7 @@
                                     <div class="properties pb-30">
                                         <div class="properties-card">
                                             <div class="properties-img">
-                                                <a href="{% url 'products:product_details' product.slug %}"><img class="product-image" src="{{ product.image.url }}"
+                                                <a href="{% url 'products:product_details' product.slug product.pk %}"><img class="product-image" src="{{ product.image.url }}"
                                                         alt=""></a>
                                                 {% comment %}
                                                 <div class="socal_icon">
@@ -50,7 +50,7 @@
 
                                             </div>
                                             <div class="properties-caption properties-caption2">
-                                                <h3><a href="{% url 'products:product_details' product.slug %}">{{ product.product_name }}</a></h3>
+                                                <h3><a href="{% url 'products:product_details' product.slug product.pk %}">{{ product.product_name }}</a></h3>
                                                 <div class="properties-footer">
                                                     <div class="price">
                                                         <span>Rs.{{ product.price }} <span>Rs.{{ product.discounted_price }}</span></span>

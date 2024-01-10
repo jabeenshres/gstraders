@@ -55,7 +55,7 @@
                                 {% for product in category.products.all %}
                                     {% if forloop.counter0 < 6 %}
                                     <ul>
-                                        <li><a href="{% url 'products:product_details' product.slug %}">{{ product.product_name }}</a></li>
+                                        <li><a href="{% url 'products:product_details' product.slug product.pk %}">{{ product.product_name }}</a></li>
 
                                     </ul>
                                     {% endif %}

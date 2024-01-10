@@ -1,5 +1,5 @@
 from django.db import models
-from PIL import Image
+# from PIL import Image
 from datetime import datetime
 from django.utils.translation import ugettext_lazy as _
 from django.utils.text import slugify

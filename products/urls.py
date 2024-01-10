@@ -34,7 +34,7 @@ urlpatterns = [
     
 
     path('category/<slug:slug>/', CategoryDetail.as_view(), name='category-detail'),
-    path('<slug:slug>/', ProductDetail.as_view(), name='product_details'),
+    path('<slug:slug>/<int:pk>/', ProductDetail.as_view(), name='product_details'),
 
 
     path("categories/all/", CategoryInSite.as_view(), name='all-categories'),
