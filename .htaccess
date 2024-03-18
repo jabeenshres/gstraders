@@ -1,6 +1,6 @@
-PassengerAppRoot "/home2/raijinte/gstraders"
+PassengerAppRoot "/home2/raijinte/suitpoint"
 PassengerBaseURI "/"
-PassengerPython "/home2/raijinte/virtualenv/gstraders/3.8/bin/python3.8"
+PassengerPython "/home2/raijinte/virtualenv/suitpoint/3.8/bin/python3.8"
 RewriteEngine On
 RewriteCond %{env:HTTPS} !on
-RewriteRule ^(.*)$ https://www.gstraders.com.np/$1 [R,L]
+RewriteRule ^(.*)$ https://www.suitpoint.raijintechnepal.com/$1 [R,L]
