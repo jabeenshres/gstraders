@@ -5,6 +5,7 @@
 
     <section class="slider-area ">
         <div class="slider-active">
+            {% comment %}
             {% for images in hero_pages %}
             <div class="single-slider slider-height d-flex align-items-center" style="background-image: url('{{ images.image.url }}');">
                 <div class="container">
@@ -22,10 +23,10 @@
             </div>
             {%  endfor %}
 
-
-            <!-- <div class="single-slider slider-bg2 slider-height d-flex align-items-center">
+            {% endcomment %}
+            <div class="single-slider slider-bg1 slider-height d-flex align-items-center">
                 <div class="container">
-                    <div class="row justify-content-end">
+                    <div class="rowr">
                         <div class="col-xxl-5 col-xl-6 col-lg-7 col-md-8 col-sm-10">
                             <div class="hero-caption text-center">
                                 <span>Fashion Sale</span>
@@ -39,7 +40,7 @@
                         </div>
                     </div>
                 </div>
-            </div> -->
+            </div>
         </div>
     </section>
 

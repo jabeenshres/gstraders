@@ -10,7 +10,7 @@ urlpatterns = [
 
     path('dashboard/', login_required(TemplateView.as_view(template_name='dashboard/dashboard.html')), name='dashboard-home'),
     path('gstraders/', include('products.urls')),
-    path('gsadmin/',include("accounts.urls")),
+    path('suit-admin/',include("accounts.urls")),
     path('',include("extras.urls")),
 
 ]
