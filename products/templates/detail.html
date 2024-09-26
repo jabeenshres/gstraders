@@ -184,7 +184,8 @@
                                                 <h3><a href="{% url 'products:product_details' product.slug product.pk %}">{{ product.product_name }}</a></h3>
                                                 <div class="properties-footer">
                                                     <div class="price">
-                                                        <span>Rs.{{ product.price }} <span>Rs.{{ product.discounted_price }}</span></span>
+                                                        <span class="discounted-price">Rs.{{ product.discounted_price }}</span>
+                                                        <span class="original-price">Rs.{{ product.price }}</span>
                                                     </div>
                                                 </div>
                                             </div>
