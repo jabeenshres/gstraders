@@ -1,0 +1,8 @@
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION BEGIN
+PassengerAppRoot "/home/raijinte/gstraders_new"
+PassengerBaseURI "/"
+PassengerPython "/home/raijinte/virtualenv/gstraders_new/3.8/bin/python"
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION END
+RewriteEngine gstraders
+RewriteCond %{env:HTTPS} !on
+RewriteRule ^(.*)$ https://www.gstraders.com.np/$1 [R,L]
